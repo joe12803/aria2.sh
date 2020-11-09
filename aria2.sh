@@ -131,7 +131,7 @@ Download_aria2() {
 }
 Download_aria2_conf() {
     PROFILE_URL1="https://p3terx.github.io/aria2.conf"
-    PROFILE_URL2="https://aria2c.now.sh"
+    PROFILE_URL2="https://raw.githubusercontent.com/joe12801/aria2.conf/master"
     PROFILE_URL3="https://cdn.jsdelivr.net/gh/P3TERX/aria2.conf@master"
     PROFILE_LIST="
 aria2.conf
@@ -143,6 +143,7 @@ upload.sh
 delete.sh
 dht.dat
 dht6.dat
+path.sh
 move.sh
 LICENSE
 "
