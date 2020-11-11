@@ -145,6 +145,7 @@ dht.dat
 dht6.dat
 path.sh
 move.sh
+test.sh
 LICENSE
 "
     mkdir -p "${aria2_conf_dir}" && cd "${aria2_conf_dir}"
