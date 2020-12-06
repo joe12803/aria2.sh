@@ -75,21 +75,18 @@ check_crontab_installed_status() {
 check_pid() {
     PID=$(ps -ef | grep "aria2c" | grep -v grep | grep -v "aria2.sh" | grep -v "init.d" | grep -v "service" | awk '{print $2}')
 }
-check_new_ver(){
-	echo -e "${Info} 请输入 Aria2 版本号，格式如：[ 1.34.0 ]，获取地址：[ https://github.com/q3aql/aria2-static-builds/releases ]"
-	read -e -p "默认回车自动获取最新版本号:" aria2_new_ver
-	if [[ -z ${aria2_new_ver} ]]; then
-		aria2_new_ver=$(wget --no-check-certificate -qO- https://api.github.com/repos/q3aql/aria2-static-builds/releases | grep -o '"tag_name": ".*"' |head -n 1| sed 's/"//g;s/v//g' | sed 's/tag_name: //g')
-		if [[ -z ${aria2_new_ver} ]]; then
-			echo -e "${Error} Aria2 最新版本获取失败，请手动获取最新版本号[ https://github.com/q3aql/aria2-static-builds/releases ]"
-			read -e -p "请输入版本号 [ 格式如 1.34.0 ] :" aria2_new_ver
-			[[ -z "${aria2_new_ver}" ]] && echo "取消..." && exit 1
-		else
-			echo -e "${Info} 检测到 Aria2 最新版本为 [ ${aria2_new_ver} ]"
-		fi
-	else
-		echo -e "${Info} 即将准备下载 Aria2 版本为 [ ${aria2_new_ver} ]"
-	fi
+check_new_ver() {
+    aria2_new_ver=$(
+        {
+            wget -t2 -T3 -qO- "https://api.github.com/repos/P3TERX/aria2-builder/releases/latest" ||
+                wget -t2 -T3 -qO- "https://gh-api.p3terx.com/repos/P3TERX/aria2-builder/releases/latest"
+        } | grep -o '"tag_name": ".*"' | head -n 1 | cut -d'"' -f4
+    )
+    if [[ -z ${aria2_new_ver} ]]; then
+        echo -e "${Error} Aria2 最新版本获取失败，请手动获取最新版本号[ https://github.com/P3TERX/aria2-builder/releases ]"
+        read -e -p "请输入版本号:" aria2_new_ver
+        [[ -z "${aria2_new_ver}" ]] && echo "取消..." && exit 1
+    fi
 }
 check_ver_comparison() {
     read -e -p "是否更新(会中断当前下载任务) ? [Y/n] :" yn
