@@ -15,8 +15,8 @@
 sh_ver="2.7.2"
 #PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 #export PATH
-aria2_conf_dir="/content/drive/Shareddrives/Happy English Drive 2/aria2"
-download_path="/content/drive/Shareddrives/Happy English Drive 2/google cola"
+aria2_conf_dir="/root/.aria2c"
+download_path="/root/download"
 aria2_conf="${aria2_conf_dir}/aria2.conf"
 aria2_log="${aria2_conf_dir}/aria2.log"
 aria2c="/usr/local/bin/aria2c"
