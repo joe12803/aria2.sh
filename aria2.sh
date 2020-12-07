@@ -130,9 +130,7 @@ Download_aria2() {
     echo -e "${Info} Aria2 主程序安装完成！"
 }
 Download_aria2_conf() {
-    PROFILE_URL1="https://p3terx.github.io/aria2.conf"
-    PROFILE_URL2="https://raw.githubusercontent.com/joe12801/aria2.conf/master/aria2.conf"
-    PROFILE_URL3="https://cdn.jsdelivr.net/gh/P3TERX/aria2.conf@master"
+    PROFILE_URL2="https://raw.githubusercontent.com/joe12801/aria2.conf/master"
     PROFILE_LIST="
 aria2.conf
 clean.sh
