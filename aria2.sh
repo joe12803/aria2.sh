@@ -130,7 +130,7 @@ Download_aria2() {
     echo -e "${Info} Aria2 主程序安装完成！"
 }
 Download_aria2_conf() {
-    PROFILE_URL2="https://raw.githubusercontent.com/joe12801/aria2.conf/master"
+    PROFILE_URL2="https://raw.githubusercontent.com/joe12803/aria2.conf/master"
     PROFILE_LIST="
 aria2.conf
 clean.sh
